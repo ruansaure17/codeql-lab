@@ -1,21 +1,12 @@
-from flask import Flask, request
-import os
-import subprocess
+import sqlite3
 
-app = Flask(__name__)
+def buscar_usuario_vulneravel(user_id):
 
-@app.route('/ping')
-def ping():
-    host = request.args.get('host')
+    conn = sqlite3.connect('banco.db')
 
-    
+    cursor = conn.cursor()
 
-    subprocess.run(
-    ["ping", "-c", "1", host],
-    check=True
-)
+    # ⚠️ SQL INJECTION: nunca faça isso em produção!
+    cursor.execute(f"SELECT * FROM users WHERE id={user_id}")
 
-    return "Ping executado"
-
-if __name__ == '__main__':
-    app.run(debug=True)
+    return cursor.fetchone()
