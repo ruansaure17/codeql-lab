@@ -27,9 +27,6 @@ jobs:
       matrix:
         language:
           - python
-          - javascript
-          - go
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
