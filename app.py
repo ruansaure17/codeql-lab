@@ -1,5 +1,6 @@
 from flask import Flask, request
 import os
+import subprocess
 
 app = Flask(__name__)
 
@@ -7,7 +8,12 @@ app = Flask(__name__)
 def ping():
     host = request.args.get('host')
 
-    os.system(f"ping -c 1 {host}")
+    
+
+    subprocess.run(
+    ["ping", "-c", "1", host],
+    check=True
+)
 
     return "Ping executado"
 
