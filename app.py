@@ -1,12 +1,20 @@
+from flask import Flask, request
 import sqlite3
 
-def buscar_usuario_vulneravel(user_id):
+app = Flask(__name__)
 
-    conn = sqlite3.connect('banco.db')
+@app.route('/user')
+def buscar_usuario():
+
+    user_id = request.args.get("id")
+
+    conn = sqlite3.connect("banco.db")
 
     cursor = conn.cursor()
 
-    # ⚠️ SQL INJECTION: nunca faça isso em produção!
-    cursor.execute(f"SELECT * FROM users WHERE id={user_id}")
+    # Vulnerável
+    cursor.execute(
+        f"SELECT * FROM users WHERE id = {user_id}"
+    )
 
-    return cursor.fetchone()
+    return str(cursor.fetchone())
