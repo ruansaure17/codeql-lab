@@ -11,4 +11,3 @@ def read_file():
     # ⚠️ Path Traversal
     with open(f"files/{filename}", "r") as f:
         return f.read()
-    

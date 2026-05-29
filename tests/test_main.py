@@ -7,4 +7,3 @@ def test_saudacao():
 
 def test_tipo():
     assert isinstance(saudacao("Ruan"), str)
-    
