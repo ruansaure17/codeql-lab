@@ -12,7 +12,6 @@ def buscar_usuario():
 
     cursor = conn.cursor()
 
-    # Vulnerável
     cursor.execute(
         f"SELECT * FROM users WHERE id = {user_id}"
     )
