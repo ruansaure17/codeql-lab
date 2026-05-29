@@ -3,7 +3,8 @@ import sqlite3
 
 app = Flask(__name__)
 
-@app.route('/user')
+
+@app.route("/user")
 def buscar_usuario():
 
     user_id = request.args.get("id")
