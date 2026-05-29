@@ -1,7 +1,16 @@
+import sys
+import os
+
+sys.path.append(
+    os.path.abspath(
+        os.path.join(os.path.dirname(__file__), '..')
+    )
+)
+
 from main import saudacao
 
 def test_saudacao():
-    assert saudacao("Saure") == "Olá, Saure"
+    assert saudacao("Ruan") == "Olá, Ruan"
 
 def test_tipo():
-    assert isinstance(saudacao("Saure"), str)
+    assert isinstance(saudacao("Ruan"), str)
