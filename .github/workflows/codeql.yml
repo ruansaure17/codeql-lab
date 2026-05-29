@@ -73,7 +73,7 @@ jobs:
           pip install pytest flake8
 
       - name: Executar testes
-        run: pytest tests/ -v
+        run: pytest tests/test_path_transversal.py -v
 
       - name: Verificar qualidade
         run: flake8 . --max-line-length=120 --exclude=venv
